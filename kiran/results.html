@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - Hazard Identification Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        @keyframes confetti {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+        .confetti-piece {
+            width: 10px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            top: -10px;
+            animation: confetti 5s linear infinite;
+        }
+        .confetti-piece:nth-child(2n) { background-color: blue; }
+        .confetti-piece:nth-child(3n) { background-color: green; }
+        .confetti-piece:nth-child(4n) { background-color: yellow; }
+        .confetti-piece:nth-child(5n) { background-color: orange; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center">Company Logo</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Your Results</h2>
+        <div id="scores">
+            <h4>Score: <span id="user-score">Placeholder Score</span></h4>
+            <h4>Leaderboard</h4>
+            <ul id="leaderboard">
+                <li>Player 1: 100</li>
+                <li>Player 2: 90</li>
+                <li>Player 3: 80</li>
+            </ul>
+        </div>
+        <br>
+        <button class="btn" id="export-excel" onclick="exportToExcel()">Download Results as Excel</button>
+        <div id="feedback-form">
+            <h4>Submit Feedback</h4>
+            <form>
+                <div class="input-field">
+                    <textarea id="feedback" class="materialize-textarea"></textarea>
+                    <label for="feedback">Your Feedback</label>
+                </div>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Hazard Identification Game</h5>
+                    <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="confetti-container"></div>
+    <script src="assets/js/paths.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="assets/js/results.js"></script>
+</body>
+</html>

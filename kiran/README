@@ -1,0 +1,16 @@
+# Hazard Identification Game
+
+## Overview
+The Hazard Identification Game is a web application designed to help users identify workplace hazards and improve safety awareness. The game includes a landing page with a tutorial, a main game page for identifying hazards, and a results page displaying the user's score and a leaderboard.
+
+## Features
+- **Interactive Tutorial:** A demo on the landing page to help users understand the game mechanics.
+- **Drag-and-Drop Game:** Users can place markers on an image to identify hazards.
+- **Admin Features:** Admins can designate hazards with pink markers and manage images.
+- **Scoring System:** Users are scored based on how close they place markers to the designated hazards.
+- **Randomized Leaderboards:** Displays a randomly chosen leaderboard from mock data.
+- **Local Storage:** Stores user preferences for light/dark mode.
+- **Animations:** Includes animations for buttons, page transitions, and a confetti effect on the results page.
+
+## Installation
+1. Your server admin should supply this
