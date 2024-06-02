@@ -1,0 +1,81 @@
+/* General styles for the site */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header and footer styles */
+header, footer {
+    background-color: #ffdddd;
+}
+
+.dark-mode header, .dark-mode footer {
+    background-color: #880000;
+    color: #ffffff;
+}
+
+/* Button animations */
+.btn, .marker-box {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover, .marker-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Marker styles */
+.marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: move;
+}
+
+.marker.danger {
+    background-color: red;
+}
+
+.marker.caution {
+    background-color: orange;
+}
+
+.marker.safe {
+    background-color: green;
+}
+
+.marker.pink {
+    background-color: pink;
+}
+
+.marker.pink[data-hazard-level]:after {
+    content: attr(data-hazard-level);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+
+/* Confetti animation for results page */
+@keyframes confetti {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+.confetti-piece {
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    animation: confetti 5s linear infinite;
+}
+
+.confetti-piece:nth-child(2n) { background-color: blue; }
+.confetti-piece:nth-child(3n) { background-color: green; }
+.confetti-piece:nth-child(4n) { background-color: yellow; }
+.confetti-piece:nth-child(5n) { background-color: orange; }

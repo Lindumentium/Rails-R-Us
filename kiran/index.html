@@ -26,6 +26,7 @@
             justify-content: space-between;
             align-items: center;
             overflow: hidden;
+            position: relative; /* Add this to position elements absolutely */
         }
         #header-content {
             display: flex;
@@ -33,8 +34,17 @@
             width: 100%;
             padding: 0 20px;
         }
-        #header-content h2, #header-content p {
+        #header-content h2 {
             margin: 0;
+            position: absolute; /* Add this to position it absolutely */
+            top: 50px; /* Adjust this value as needed */
+            left: 20px; /* Adjust this value as needed */
+        }
+        #header-content p {
+            margin: 0;
+            position: absolute; /* Add this to position it absolutely */
+            top: 250px; /* Adjust this value as needed */
+            right: 20px; /* Adjust this value as needed */
         }
         #demo {
             display: flex;
@@ -43,21 +53,22 @@
             width: 100%;
         }
         #image-container {
-            position: relative;
+            position: absolute; /* Change from relative to absolute */
             border: 1px solid #ccc;
             width: 200px;
             height: 150px;
-            margin-right: 20px;
+            right: 20px; /* Adjust this value to position it in the bottom right quarter */
+            bottom: 20px; /* Adjust this value to position it in the bottom right quarter */
         }
         .marker {
-            width: 20px;
-            height: 20px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             position: absolute;
             cursor: move;
             background-color: red;
-            left: 10px;
-            top: calc(50% - 10px);
+            left: -250px; /* Adjust this value to position it in the bottom left quarter */
+            bottom: 20px; /* Adjust this value to position it in the bottom left quarter */
         }
         #image-container img {
             width: 100%;
