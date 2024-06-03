@@ -19,26 +19,27 @@
         </nav>
     </header>
     <main>
-        <div id="marker-collection">
-            <h5>Marker Collection</h5>
-            <div class="marker-box danger" id="danger-marker">Danger</div>
-            <div class="marker-box caution" id="caution-marker">Caution</div>
-            <div class="marker-box safe" id="safe-marker">Safe</div>
-            <button class="btn" style="margin: 20px 0;" onclick="recallMarker()">Recall Last Marker</button>
-            <button class="btn" style="margin: 20px 0;" onclick="clearMarkers()">Clear All Markers</button>
-            <button class="btn" style="margin: 20px 0;" onclick="submitMarkers()">Submit</button>
-        </div>
-        <div id="image-container">
-            <img src="assets/images/hazard.png" alt="Hazard Image" style="width: 100%; height: 100%;">
-        </div>
-        <div id="admin-menu">
-            <button class="btn" style="margin: 20px 0;" onclick="openLoginModal()">Login</button>
-            <div id="admin-options" style="display: none;">
-                <div class="marker-box pink" id="designate-hazard-marker">Designate Hazard</div>
-                <button class="btn" style="margin: 20px 0;" onclick="manageImages()">Manage Images</button>
+        <div id="top-container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div id="marker-collection" style="display: flex; align-items: center;">
+                <div class="marker-box danger" id="danger-marker">Danger</div>
+                <div class="marker-box caution" id="caution-marker">Caution</div>
+                <div class="marker-box safe" id="safe-marker">Safe</div>
+                <button class="btn" style="margin: 0 10px;" onclick="recallMarker()">Recall Last Marker</button>
+                <button class="btn" style="margin: 0 10px;" onclick="clearMarkers()">Clear All Markers</button>
+                <button class="btn" style="margin: 0 10px;" onclick="submitMarkers()">Submit</button>
             </div>
-            <div id="timer">Time left: 3:00</div>
+            <div id="admin-menu" style="display: flex; align-items: center;">
+                <button class="btn" onclick="openLoginModal()">Login</button>
+                <div id="admin-options" style="display: none; margin-left: 10px;">
+                    <div class="marker-box pink" id="designate-hazard-marker">Designate Hazard</div>
+                    <button class="btn" style="margin: 0 10px;" onclick="manageImages()">Manage Images</button>
+                </div>
+            </div>
         </div>
+        <div id="image-container" style="flex-grow: 1;">
+            <img src="assets/images/hazard.png" alt="Hazard Image" id="hazard-image">
+        </div>
+        <div id="timer">Time left: 3:00</div>
     </main>
     <footer class="page-footer">
         <div class="container">

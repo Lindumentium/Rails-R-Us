@@ -1,12 +1,11 @@
-/* General styles for the site */
 body, html {
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
+    overflow: hidden; /* Prevent scrolling */
 }
 
-/* Header and footer styles */
 header, footer {
     background-color: #ffdddd;
 }
@@ -16,7 +15,6 @@ header, footer {
     color: #ffffff;
 }
 
-/* Button animations */
 .btn, .marker-box {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -26,7 +24,6 @@ header, footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Marker styles */
 .marker {
     width: 40px;
     height: 40px;
@@ -59,6 +56,13 @@ header, footer {
     transform: translate(-50%, -50%);
     color: white;
     font-weight: bold;
+}
+
+#hazard-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: calc(100vh - 120px); /* Adjust according to header and footer heights */
 }
 
 /* Confetti animation for results page */

@@ -3,38 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zach's Work Projects</title>
+    <title>Office Work Stuff</title>
     <link rel="stylesheet" href="assets/styles.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.15/paper-full.min.js"></script>
 </head>
-<body>
-    <header>
-        <h1>Zach's Work Projects</h1>
-    </header>
-    <main>
-        <div class="project-list">
-            <div class="project-item" onclick="toggleDescription('kiran')">
-                <h2>Kiran - Hazard Identification Game</h2>
-            </div>
-            <div id="kiran" class="project-description">
-                <p>A project focused on hazard identification and management. This application helps users identify workplace hazards and improve safety awareness.</p>
-                <a href="kiran/index.html" class="project-link">Go to project</a>
-            </div>
-            <div class="project-item" onclick="toggleDescription('phillip')">
-                <h2>Phillip - Contractors Information Collection App</h2>
-            </div>
-            <div id="phillip" class="project-description">
-                <p>A project for Queensland Rail Contractor Portal, facilitating safety and environment assessments for contractors and assessors.</p>
-                <a href="phillip/index.html" class="project-link">Go to project</a>
-            </div>
-            <div class="project-item" onclick="toggleDescription('heath')">
-                <h2>Heath - Spot the Shocka App</h2>
-            </div>
-            <div id="heath" class="project-description">
-                <p>A project for the Safety and Assurance team to spot hazards in the workplace.</p>
-                <a href="heath/index.html" class="project-link">Go to project</a>
-            </div>
-        </div>
-    </main>
-    <script src="script/script.js"></script>
+<body class="light-mode">
+
+<canvas id="myCanvas" resize></canvas>
+
+<div class="banner">
+    <div class="site-title">Zachary's Work Projects</div>
+    <div class="theme-toggle">
+        <div class="toggle-ball"></div>
+    </div>
+</div>
+
+<div class="container" id="cubes-container"></div>
+
+<div class="menu-box">
+    <h2>Project Title</h2>
+    <p>Description goes here...</p>
+    <button>Go to Project</button>
+</div>
+
+<script src="script/script.js"></script>
+<script type="text/paperscript" canvas="myCanvas">
+    var width, height, center;
+    var points = 10;
+    var smooth = true;
+    var path = new Path();
+    var mousePos = view.center / 2;
+    var pathHeight = mousePos.y;
+    path.fillColor = document.body.classList.contains('dark-mode') ? '#61f4de' : '#ff7477';
+    initializePath();
+
+    function initializePath() {
+        center = view.center;
+        width = view.size.width;
+        height = view.size.height / 2;
+        path.segments = [];
+        path.add(view.bounds.bottomLeft);
+        for (var i = 1; i < points; i++) {
+            var point = new Point(width / points * i, center.y);
+            path.add(point);
+        }
+        path.add(view.bounds.bottomRight);
+    }
+
+    function onFrame(event) {
+        pathHeight += (center.y - mousePos.y - pathHeight) / 10;
+        for (var i = 1; i < points; i++) {
+            var sinSeed = event.count + (i + i % 10) * 100;
+            var sinHeight = Math.sin(sinSeed / 200) * pathHeight;
+            var yPos = Math.sin(sinSeed / 100) * sinHeight + height;
+            path.segments[i].point.y = yPos;
+        }
+        if (smooth)
+            path.smooth({ type: 'continuous' });
+    }
+
+    function onMouseMove(event) {
+        mousePos = event.point;
+    }
+
+    function onMouseDown(event) {
+        smooth = !smooth;
+        if (!smooth) {
+            for (var i = 0, l = path.segments.length; i < l; i++) {
+                var segment = path.segments[i];
+                segment.handleIn = segment.handleOut = null;
+            }
+        }
+    }
+
+    function onResize(event) {
+        initializePath();
+    }
+
+    function onThemeChange() {
+        path.fillColor = document.body.classList.contains('dark-mode') ? '#61f4de' : '#ff7477';
+    }
+
+    document.querySelector('.theme-toggle').addEventListener('click', onThemeChange);
+
+    function updatePathColor(color) {
+        path.fillColor = color;
+    }
+
+    window.updatePathColor = updatePathColor;
+</script>
 </body>
 </html>
