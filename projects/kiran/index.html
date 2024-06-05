@@ -6,75 +6,6 @@
     <title>Hazard Identification Game</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-        header, footer {
-            background-color: #ffdddd;
-        }
-        .dark-mode header, .dark-mode footer {
-            background-color: #880000;
-            color: #ffffff;
-        }
-        main {
-            flex: 1;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            position: relative; /* Add this to position elements absolutely */
-        }
-        #header-content {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            padding: 0 20px;
-        }
-        #header-content h2 {
-            margin: 0;
-            position: absolute; /* Add this to position it absolutely */
-            top: 50px; /* Adjust this value as needed */
-            left: 20px; /* Adjust this value as needed */
-        }
-        #header-content p {
-            margin: 0;
-            position: absolute; /* Add this to position it absolutely */
-            top: 250px; /* Adjust this value as needed */
-            right: 20px; /* Adjust this value as needed */
-        }
-        #demo {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-        }
-        #image-container {
-            position: absolute; /* Change from relative to absolute */
-            border: 1px solid #ccc;
-            width: 200px;
-            height: 150px;
-            right: 20px; /* Adjust this value to position it in the bottom right quarter */
-            bottom: 20px; /* Adjust this value to position it in the bottom right quarter */
-        }
-        .marker {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            position: absolute;
-            cursor: move;
-            background-color: red;
-            left: -250px; /* Adjust this value to position it in the bottom left quarter */
-            bottom: 20px; /* Adjust this value to position it in the bottom left quarter */
-        }
-        #image-container img {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -95,7 +26,7 @@
         <div id="demo">
             <div id="image-container">
                 <img src="assets/images/demo.png" alt="Demo Image">
-                <div id="demo-marker" class="marker">Drag me!</div>
+                <div id="demo-marker" class="marker" draggable="true">Drag me!</div>
             </div>
         </div>
     </main>
@@ -113,5 +44,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+    <script>
+        interact('#demo-marker').draggable({
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                    target.style.transform = `translate(${x}px, ${y}px)`;
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                },
+                end(event) {
+                    const target = event.target;
+                    const rect = target.getBoundingClientRect();
+                    const targetRect = document.querySelector('#image-container img').getBoundingClientRect();
+
+                    if (
+                        rect.left >= targetRect.left &&
+                        rect.right <= targetRect.right &&
+                        rect.top >= targetRect.top &&
+                        rect.bottom <= targetRect.bottom
+                    ) {
+                        window.location.href = paths.game;
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>

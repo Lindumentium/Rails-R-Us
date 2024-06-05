@@ -12,36 +12,29 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="index.html" class="brand-logo center">Company Logo</a>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
-                </ul>
             </div>
         </nav>
     </header>
     <main>
-        <div id="top-container" style="display: flex; justify-content: space-between; align-items: center;">
-            <div id="marker-collection" style="display: flex; align-items: center;">
-                <div class="marker-box danger" id="danger-marker">Danger</div>
-                <div class="marker-box caution" id="caution-marker">Caution</div>
-                <div class="marker-box safe" id="safe-marker">Safe</div>
-                <button class="btn" style="margin: 0 10px;" onclick="recallMarker()">Recall Last Marker</button>
-                <button class="btn" style="margin: 0 10px;" onclick="clearMarkers()">Clear All Markers</button>
-                <button class="btn" style="margin: 0 10px;" onclick="submitMarkers()">Submit</button>
+        <div id="main-container" style="display: flex;">
+            <div id="button-container" style="position: absolute; right: 20px; top: 50px;">
+                <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 20px;">
+                    <li><button class="btn danger" id="danger-marker" style="background-color: red;">Danger</button></li>
+                    <li><button class="btn caution" id="caution-marker" style="background-color: orange;">Caution</button></li>
+                    <li><button class="btn safe" id="safe-marker" style="background-color: green;">Safe</button></li>
+                    <li><button class="btn" id="recall-marker">Recall Last Marker</button></li>
+                    <li><button class="btn" onclick="clearMarkers()">Clear All Markers</button></li>
+                    <li><button class="btn" onclick="submitMarkers()">Submit</button></li>
+                    <li><button class="btn" onclick="openLoginModal()">Admin Login</button></li>
+                </ul>
             </div>
-            <div id="admin-menu" style="display: flex; align-items: center;">
-                <button class="btn" onclick="openLoginModal()">Login</button>
-                <div id="admin-options" style="display: none; margin-left: 10px;">
-                    <div class="marker-box pink" id="designate-hazard-marker">Designate Hazard</div>
-                    <button class="btn" style="margin: 0 10px;" onclick="manageImages()">Manage Images</button>
-                </div>
+            <div id="image-container" style="position: absolute; top: 65px; left: 0; right: 200px; bottom: 25px;">
+                <img src="assets/images/hazard.png" alt="Hazard Image" id="hazard-image" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
-        </div>
-        <div id="image-container" style="flex-grow: 1;">
-            <img src="assets/images/hazard.png" alt="Hazard Image" id="hazard-image">
         </div>
         <div id="timer">Time left: 3:00</div>
     </main>
-    <footer class="page-footer">
+    <footer class="page-footer" style="position: fixed; bottom: 0; width: 100%; height: 55px; background-color: #ccc;">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
@@ -93,13 +86,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/game.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var elems = document.querySelectorAll('.modal');
-            var instances = M.Modal.init(elems);
-            var selects = document.querySelectorAll('select');
-            var selectInstances = M.FormSelect.init(selects);
-        });
-    </script>
 </body>
 </html>
