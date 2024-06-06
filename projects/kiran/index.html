@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rails R Us Hazard Identification Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo center">Rails R Us Company Logo</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <div id="header-content">
+            <h2>Welcome to the Rails R Us Hazard Identification Game</h2>
+            <p>This game helps you identify workplace hazards and improve safety awareness.</p>
+        </div>
+        <div id="demo">
+            <div id="image-container">
+                <img src="assets/images/demo.png" alt="Demo Image">
+                <div id="demo-marker" class="marker" draggable="true">Drag me!</div>
+            </div>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Rails R Us Hazard Identification Game</h5>
+                    <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/paths.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+    <script>
+        interact('#demo-marker').draggable({
+            listeners: {
+                move(event) {
+                    const target = event.target;
+                    const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+                    const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+                    target.style.transform = `translate(${x}px, ${y}px)`;
+                    target.setAttribute('data-x', x);
+                    target.setAttribute('data-y', y);
+                },
+                end(event) {
+                    const target = event.target;
+                    const rect = target.getBoundingClientRect();
+                    const targetRect = document.querySelector('#image-container img').getBoundingClientRect();
+
+                    if (
+                        rect.left >= targetRect.left &&
+                        rect.right <= targetRect.right &&
+                        rect.top >= targetRect.top &&
+                        rect.bottom <= targetRect.bottom
+                    ) {
+                        window.location.href = paths.game;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

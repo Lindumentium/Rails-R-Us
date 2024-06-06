@@ -1,0 +1,28 @@
+{
+    "projects": [
+        {
+            "title": "Kiran",
+            "description": "A hazard identification game to assess worker alertness and awareness prior to the start of their shift",
+            "link": "/work/projects/kiran/index.html",
+            "color": "#FF6666"
+        },
+        {
+            "title": "Phillip",
+            "description": "A more streamlined Pre-Qualifications information collection site",
+            "link": "/work/projects/phillip/index.html",
+            "color": "#FFCC66"
+        },
+        {
+            "title": "Heath",
+            "description": "A monthly contest to 'Spot the Shocka!'",
+            "link": "/work/projects/heath/index.html",
+            "color": "#66FF66"
+        },
+        {
+            "title": "Next Project",
+            "description": "Description for Next Project",
+            "link": "#",
+            "color": "#66CCFF"
+        }
+    ]
+}

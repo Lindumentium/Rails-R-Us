@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Hazard Identification Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center">Company Logo</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container">
+        <h2>Admin Dashboard</h2>
+        <div id="image-management">
+            <h4>Manage Images</h4>
+            <form id="upload-form">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Upload Image</span>
+                        <input type="file" id="image-upload">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+                <button type="submit" class="btn">Upload</button>
+            </form>
+            <ul id="image-list">
+                <li>Placeholder Image 1 <button class="btn red">Remove</button></li>
+                <li>Placeholder Image 2 <button class="btn red">Remove</button></li>
+            </ul>
+        </div>
+    </main>
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Hazard Identification Game</h5>
+                    <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/paths.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <script src="assets/js/darkMode.js"></script>
+</body>
+</html>

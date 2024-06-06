@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rails R Us Hazard Identification Game</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="index.html" class="brand-logo center">Rails R Us Company Logo</a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="main-container" style="display: flex;">
+            <div id="button-container" style="position: absolute; right: 20px; top: 50px;">
+                <ul style="list-style-type: none; padding: 0; display: flex; flex-direction: column; gap: 20px;">
+                    <li><button class="btn danger" id="danger-marker" style="background-color: red;">Danger</button></li>
+                    <li><button class="btn caution" id="caution-marker" style="background-color: orange;">Caution</button></li>
+                    <li><button class="btn safe" id="safe-marker" style="background-color: green;">Safe</button></li>
+                    <li><button class="btn" id="recall-marker">Recall Last Marker</button></li>
+                    <li><button class="btn" onclick="clearMarkers()">Clear All Markers</button></li>
+                    <li><button class="btn" onclick="submitMarkers()">Submit</button></li>
+                    <li><button class="btn" onclick="openLoginModal()">Admin Login</button></li>
+                </ul>
+            </div>
+            <div id="image-container" style="position: absolute; top: 65px; left: 0; right: 200px; bottom: 25px;">
+                <img src="assets/images/hazard.png" alt="Hazard Image" id="hazard-image" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+        </div>
+        <div id="timer">Time left: 3:00</div>
+    </main>
+    <footer class="page-footer" style="position: fixed; bottom: 0; width: 100%; height: 55px; background-color: #ccc;">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Rails R Us Hazard Identification Game</h5>
+                    <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h4>Admin Login</h4>
+            <div class="input-field">
+                <input id="username" type="text">
+                <label for="username">Username</label>
+            </div>
+            <div class="input-field">
+                <input id="password" type="password">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn waves-effect waves-light" onclick="adminLogin()">Login</button>
+        </div>
+    </div>
+
+    <!-- Label Modal -->
+    <div id="label-modal" class="modal" style="width: 400px;">
+        <div class="modal-content">
+            <h4>Select Hazard Level</h4>
+            <div class="input-field">
+                <select id="hazard-level">
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="danger">Danger</option>
+                    <option value="caution">Caution</option>
+                    <option value="safe">Safe</option>
+                </select>
+                <label for="hazard-level">Hazard Level</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn waves-effect waves-light" onclick="setHazardLevel()">Set</button>
+        </div>
+    </div>
+
+    <script src="assets/js/paths.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="assets/js/game.js"></script>
+</body>
+</html>
