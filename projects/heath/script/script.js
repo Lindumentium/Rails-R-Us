@@ -1,40 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const image = document.getElementById("main-image");
-    const selectionsList = document.getElementById("selections-list");
-    let selections = [];
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('image-canvas');
+    paper.setup(canvas);
+    const tool = new paper.Tool();
 
-    // Sample hotspot data
-    const hotspots = [
-        { id: 1, top: 50, left: 100, width: 50, height: 50, description: "Hazard 1" },
-        { id: 2, top: 200, left: 300, width: 75, height: 75, description: "Hazard 2" }
-    ];
+    const imageUrl = 'path/to/your/image.jpg';
+    const raster = new paper.Raster(imageUrl);
+    raster.onLoad = () => {
+        raster.fitBounds(paper.view.bounds);
+    };
 
-    // Add draggable hotspots to the image
-    hotspots.forEach(hotspot => {
-        const div = document.createElement("div");
-        div.classList.add("hotspot");
-        div.style.top = `${hotspot.top}px`;
-        div.style.left = `${hotspot.left}px`;
-        div.style.width = `${hotspot.width}px`;
-        div.style.height = `${hotspot.height}px`;
-        div.dataset.description = hotspot.description;
+    tool.onMouseMove = (event) => {
+        // Highlight logic here
+    };
 
-        div.addEventListener("click", () => {
-            selections.push(hotspot.description);
-            updateSelections();
-        });
+    tool.onMouseDown = (event) => {
+        // Click handling logic here
+    };
 
-        image.parentElement.appendChild(div);
+    // Add RxDB initialization and user selection handling
+});
 
-        Draggable.create(div, {
-            onDragEnd: function() {
-                hotspot.top = this.y;
-                hotspot.left = this.x;
-            }
-        });
-    });
+// admin.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Admin tool initialization
+    const adminTool = new paper.Tool();
+    adminTool.onMouseDown = (event) => {
+        // Draw area logic here
+    };
 
-    function updateSelections() {
-        selectionsList.innerHTML = selections.map(selection => `<li>${selection}</li>`).join("");
-    }
+    // Add admin login handling and area management
 });
