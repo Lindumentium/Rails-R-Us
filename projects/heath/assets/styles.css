@@ -1,36 +1,24 @@
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
 }
 
-header {
-    margin-top: 20px;
+#auth-section {
+    margin-bottom: 20px;
 }
 
-main {
-    display: flex;
-    justify-content: space-around;
+#image-section {
     width: 80%;
-    margin-top: 20px;
-}
-
-.image-container {
+    height: 60vh;
     position: relative;
 }
 
-#main-image {
-    max-width: 600px;
+#selection-section {
+    margin-top: 20px;
 }
 
-.info-panel {
-    width: 300px;
-}
-
-.hotspot {
-    position: absolute;
-    border: 2px solid red;
-    background-color: rgba(255, 0, 0, 0.5);
-    cursor: pointer;
+#selection-list {
+    list-style-type: none;
 }
