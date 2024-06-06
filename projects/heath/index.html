@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spot the Shocka for Rails R Us</title>
+    <title>Interactive Image Website</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Spot the Shocka for Rails R Us</h1>
-    </header>
-    <main>
-        <div class="image-container">
-            <img src="images/sample.jpg" alt="Spot the Shocka" id="main-image">
-            <!-- Draggable hotspots will be added dynamically -->
-        </div>
-        <div class="info-panel">
-            <h2>User Selections</h2>
-            <ul id="selections-list">
-                <!-- User selections will be shown here -->
-            </ul>
-            <p><a href="https://forms.office.com/your-form-link" target="_blank">Submit Findings</a></p>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    <div id="auth-section">
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <div id="image-section">
+        <canvas id="image-canvas"></canvas>
+    </div>
+    <div id="selection-section">
+        <ul id="selection-list"></ul>
+    </div>
+
+    <script src="https://unpkg.com/paper/dist/paper-full.min.js"></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="https://unpkg.com/rxdb/dist/rxdb.min.js"></script>
+    <script src="app.js"></script>
+    <script src="admin.js"></script>
 </body>
 </html>
