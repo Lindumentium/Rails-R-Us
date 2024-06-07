@@ -1,36 +1,205 @@
+/* Reusable variables at the top */
+:root {
+    --bg-color: #1a3d2d;
+    --text-color: #e8f5e9;
+    --banner-bg-color: #2a563f;
+    --flag-bg-color: orange;
+    --flag-text-color: white;
+    --sidebar-bg-color: #111;
+    --sidebar-text-color: #818181;
+    --sidebar-hover-color: #f1f1f1;
+    --modal-bg-color: rgba(0,0,0,0.4);
+    --modal-content-bg-color: #fefefe;
+    --modal-content-border-color: #888;
+    --close-button-color: #aaa;
+    --close-button-hover-color: black;
+    --open-button-bg-color: #111;
+    --open-button-hover-bg-color: #444;
+}
+
+/* Main styles */
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
 }
 
-header {
-    margin-top: 20px;
+#top-banner, #bottom-banner {
+    width: 100%;
+    text-align: center;
+    background-color: var(--banner-bg-color);
+    padding: 10px;
+    font-size: 1.5em;
 }
 
-main {
+#main-container {
     display: flex;
-    justify-content: space-around;
-    width: 80%;
-    margin-top: 20px;
+    width: 100%;
+    height: calc(100vh - 160px);
+    flex-direction: column;
 }
 
-.image-container {
+#image-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     position: relative;
 }
 
-#main-image {
-    max-width: 600px;
+#image-canvas {
+    border: 1px solid var(--text-color);
+    width: 800px;
+    height: 600px;
 }
 
-.info-panel {
-    width: 300px;
+#selection-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--banner-bg-color);
+    padding: 10px;
 }
 
-.hotspot {
-    position: absolute;
-    border: 2px solid red;
-    background-color: rgba(255, 0, 0, 0.5);
+#selection-list {
+    list-style-type: none;
+    padding: 0;
+    width: 100%;
+}
+
+#selection-list li {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 10px;
+    margin: 5px 0;
+    cursor: move;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--modal-bg-color);
+}
+
+.modal-content {
+    background-color: var(--modal-content-bg-color);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid var(--modal-content-border-color);
+    width: 80%;
+}
+
+.close-button {
+    color: var(--close-button-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--close-button-hover-color);
+    text-decoration: none;
     cursor: pointer;
+}
+
+/* Sidebar styles */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: var(--sidebar-bg-color);
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: var(--sidebar-text-color);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: var(--sidebar-hover-color);
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--open-button-bg-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: var(--open-button-hover-bg-color);
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {
+        padding-top: 15px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #main-container {
+        flex-direction: row;
+    }
+}
+
+.flag {
+    background-color: var(--flag-bg-color);
+    color: var(--flag-text-color);
+    padding: 5px;
+    border-radius: 3px;
+    position: absolute;
+    cursor: move;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

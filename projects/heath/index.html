@@ -3,28 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spot the Shocka App</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <title>Interactive Image Website</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/@shopify/draggable@1.0.0-beta.8/lib/draggable.css">
 </head>
 <body>
-    <header>
-        <h1>Spot the Shocka</h1>
+    <header id="top-banner">
+        Rails 'R Us
     </header>
-    <main>
-        <div class="image-container">
-            <img src="images/sample.jpg" alt="Spot the Shocka" id="main-image">
-            <!-- Draggable hotspots will be added dynamically -->
+
+    <!-- Sidebar -->
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Spot the Shocka!</a>
+        <a href="javascript:void(0)" id="submit-button">Submit Answers</a>
+        <a href="admin.html" id="admin-button">Admin Login</a>
+        <a href="upload.html">Image Upload</a>
+        <a href="#">About</a>
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
+        <div id="main-container">
+            <div id="image-section">
+                <canvas id="image-canvas" width="800" height="600"></canvas>
+                <!-- Test Image Path -->
+                <img src="assets/images/image1.png" alt="Test Image" id="test-image" style="display:none;">
+            </div>
+            <div id="selection-section">
+                <button id="recall-last">Recall Last</button>
+                <button id="recall-all">Recall All</button>
+                <ul id="selection-list" class="draggable-list"></ul>
+            </div>
         </div>
-        <div class="info-panel">
-            <h2>User Selections</h2>
-            <ul id="selections-list">
-                <!-- User selections will be shown here -->
-            </ul>
-            <p><a href="https://forms.office.com/your-form-link" target="_blank">Submit Findings</a></p>
-        </div>
-    </main>
-    <script src="script.js"></script>
+    </div>
+
+    <footer id="bottom-banner">
+        Remember, workplace safety is everyone's responsibility!
+    </footer>
+
+    <script src="https://unpkg.com/paper/dist/paper-full.min.js"></script>
+    <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+    <script src="https://unpkg.com/@shopify/draggable@1.0.0-beta.8/lib/draggable.bundle.legacy.js"></script>
+    <script src="scripts/menus.js"></script>
+    <script src="scripts/buttons.js"></script>
+    <script src="scripts/image.js"></script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <header id="top-banner">
+        Image Upload
+    </header>
+
+    <div id="main">
+        <h2>Upload an Image</h2>
+        <form id="upload-form" enctype="multipart/form-data">
+            <input type="file" id="image-input" name="image" accept="image/*">
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <footer id="bottom-banner">
+        Remember, workplace safety is everyone's responsibility!
+    </footer>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('image-input');
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            }).then(response => response.json())
+              .then(data => {
+                  alert('Image uploaded successfully!');
+              })
+              .catch(error => {
+                  console.error('Error uploading image:', error);
+                  alert('Error uploading image');
+              });
+        });
+    </script>
+</body>
+</html>
