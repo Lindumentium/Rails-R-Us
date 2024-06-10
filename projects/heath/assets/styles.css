@@ -1,4 +1,4 @@
-/* Reusable variables at the top */
+/* styles.css */
 :root {
     --bg-color: #1a3d2d;
     --text-color: #e8f5e9;
@@ -15,6 +15,8 @@
     --close-button-hover-color: black;
     --open-button-bg-color: #111;
     --open-button-hover-bg-color: #444;
+    --red-flag-bg-color: red;
+    --yellow-flag-bg-color: yellow;
 }
 
 /* Main styles */
@@ -202,4 +204,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.flag.red {
+    background-color: var(--red-flag-bg-color);
+    width: 35px;
+    height: 35px;
+}
+
+.flag.yellow {
+    background-color: var(--yellow-flag-bg-color);
+    width: 30px;
+    height: 30px;
 }

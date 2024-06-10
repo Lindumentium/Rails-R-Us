@@ -1,9 +1,12 @@
+// image.js
+
 // Reusable variables
 const canvas = document.getElementById('image-canvas');
 const imageSection = document.getElementById('image-section');
 const selectionList = document.getElementById('selection-list');
 const mainContainer = document.getElementById('main-container');
 let flags = [];
+let currentFlagColor = 'yellow'; // Default flag color
 
 document.addEventListener('DOMContentLoaded', async () => {
     paper.setup(canvas);
@@ -63,8 +66,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (hitResult) {
             highlightCircle = new paper.Path.Circle({
                 center: event.point,
-                radius: 20,
-                strokeColor: 'yellow'
+                radius: currentFlagColor === 'yellow' ? 20 : 25,
+                strokeColor: currentFlagColor
             });
             paper.view.draw();
         }
@@ -86,14 +89,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         selectedArea.textContent = `Area at (${(xPercent * 100).toFixed(2)}%, ${(yPercent * 100).toFixed(2)}%)`;
         selectedArea.setAttribute('data-x-percent', xPercent);
         selectedArea.setAttribute('data-y-percent', yPercent);
+        selectedArea.style.color = currentFlagColor; // Set the color of the list item
         selectionList.appendChild(selectedArea);
 
         const flag = document.createElement('div');
         flag.className = 'flag';
-        flag.textContent = 'F';
+        flag.textContent = currentFlagColor === 'yellow' ? 'Y' : 'R';
         flag.style.left = `${point.x}px`;
         flag.style.top = `${point.y}px`;
         flag.style.position = 'absolute';
+        flag.style.backgroundColor = currentFlagColor;
+        flag.style.width = currentFlagColor === 'yellow' ? '30px' : '35px';
+        flag.style.height = currentFlagColor === 'yellow' ? '30px' : '35px';
         mainContainer.appendChild(flag);
         flags.push({ flag, listItem: selectedArea });
 
@@ -183,4 +190,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     window.recallLastFlag = recallLastFlag;
     window.recallAllFlags = recallAllFlags;
+    window.toggleFlagColor = () => {
+        currentFlagColor = currentFlagColor === 'yellow' ? 'red' : 'yellow';
+    };
 });

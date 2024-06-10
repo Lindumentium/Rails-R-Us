@@ -1,9 +1,10 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Image Website</title>
+    <title>Spot the Shocka!</title>
     <link rel="stylesheet" href="assets/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/@shopify/draggable@1.0.0-beta.8/lib/draggable.css">
 </head>
@@ -33,6 +34,7 @@
             <div id="selection-section">
                 <button id="recall-last">Recall Last</button>
                 <button id="recall-all">Recall All</button>
+                <button onclick="toggleFlagColor()">Toggle Flag Color</button>
                 <ul id="selection-list" class="draggable-list"></ul>
             </div>
         </div>
