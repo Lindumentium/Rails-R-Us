@@ -9,7 +9,7 @@
 7. [Contributing](#contributing)
 
 ## Project Overview
-The Interactive Image Website is a tool designed to enhance workplace safety by allowing users to mark specific areas on images with flags. These flags can be annotated with notes, making it easier to identify and communicate potential hazards. The project utilizes Fabric.js for canvas functionalities, Tailwind CSS for styling, and Theme UI for managing themes.
+The Spot the Shocka! is a tool designed to enhance workplace safety by allowing users to mark specific areas on images with flags. These flags can be annotated with notes, making it easier to identify and communicate potential hazards. The project utilizes Fabric.js for canvas functionalities, Tailwind CSS for styling, and Theme UI for managing themes.
 
 ## Current Features
 - **Theme Management**: Users can switch between light and dark themes, as well as select different color schemes.
@@ -70,16 +70,5 @@ The Interactive Image Website is a tool designed to enhance workplace safety by 
 4. **User Authentication**: Implement user authentication for the admin section.
 5. **Backend Integration**: Integrate a backend service to save and load user data.
 
-## Contributing
-We welcome contributions from the community. To contribute:
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Commit your changes (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Create a new Pull Request.
 
-For any questions or issues, please contact [your email].
-
----
-
-Feel free to modify this README file to better fit your project's specifics and your preferences. Let me know if there's anything else you need!
+For any questions or issues, please contact me.
