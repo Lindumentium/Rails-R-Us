@@ -1,53 +1,19 @@
-// Database configuration
-const { createRxDatabase, addRxPlugin } = rxdb;
-addRxPlugin(pouchdbAdapterIdb);
+// db.js
 
-const dbPromise = createRxDatabase({
-    name: 'interactive_image_db',
-    adapter: 'idb',
-    multiInstance: true
-}).then(db => {
-    const areasSchema = {
-        title: 'areas schema',
-        description: 'describes an area highlighted by the admin',
-        version: 0,
-        primaryKey: 'id',
-        type: 'object',
-        properties: {
-            id: {
-                type: 'string',
-                maxLength: 100
-            },
-            point: {
-                type: 'string'
-            }
-        }
-    };
+const imageUrlKey = (imageUrl) => `image_${imageUrl}`;
 
-    const selectedAreasSchema = {
-        title: 'selected areas schema',
-        description: 'describes an area selected by the user',
-        version: 0,
-        primaryKey: 'id',
-        type: 'object',
-        properties: {
-            id: {
-                type: 'string',
-                maxLength: 100
-            },
-            point: {
-                type: 'string'
-            }
-        }
-    };
+async function savePointsToLocalStorage(imageUrl, flags) {
+    const points = flags.map(f => ({
+        xPercent: parseFloat(f.listItem.getAttribute('data-x-percent')),
+        yPercent: parseFloat(f.listItem.getAttribute('data-y-percent'))
+    }));
+    localStorage.setItem(imageUrlKey(imageUrl), JSON.stringify(points));
+}
 
-    return db.addCollections({
-        areas: { schema: areasSchema },
-        selectedAreas: { schema: selectedAreasSchema }
-    }).then(() => db);
-});
+function loadPointsFromLocalStorage(imageUrl) {
+    return JSON.parse(localStorage.getItem(imageUrlKey(imageUrl))) || [];
+}
 
-// Database functions
 async function saveArea(path) {
     const db = await dbPromise;
     await db.areas.insert({

@@ -1,0 +1,44 @@
+/* theme.css */
+:root {
+    --bg-color: #1a3d2d;
+    --text-color: #e8f5e9;
+    --banner-bg-color: #2a563f;
+    --flag-bg-color: orange;
+    --flag-text-color: white;
+    --sidebar-bg-color: #111;
+    --sidebar-text-color: #818181;
+    --sidebar-hover-color: #f1f1f1;
+    --modal-bg-color: rgba(0,0,0,0.4);
+    --modal-content-bg-color: #fefefe;
+    --modal-content-border-color: #888;
+    --close-button-color: #aaa;
+    --close-button-hover-color: black;
+    --open-button-bg-color: #111;
+    --open-button-hover-bg-color: #444;
+    --red-flag-bg-color: red;
+    --yellow-flag-bg-color: yellow;
+}
+
+body {
+    overflow: hidden; /* Disable page scrolling */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+}
+
+#main-container {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 160px);
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+    #main-container {
+        flex-direction: row;
+    }
+}

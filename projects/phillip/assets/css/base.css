@@ -1,0 +1,15 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #e3f2fd; /* Light blue background for Material UI pastel blue theme */
+}
+
+h1 {
+    color: #1976d2; /* Material UI primary blue */
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}

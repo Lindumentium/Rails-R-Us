@@ -1,35 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.css">
-<title>Rails R Us Contractor Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <title>Rails R Us Contractor Portal</title>
+    <style>
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .large-paragraph {
+            width: 40%;
+            float: left;
+            padding: 20px;
+            font-size: 18px;
+        }
+
+        .info-boxes {
+            width: 30%;
+            float: right;
+        }
+
+        .info-box {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive text */
+        @media screen and (max-width: 600px) {
+            .large-paragraph {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Welcome to Rails R Us Contractor Portal</h1>
-    <p>Welcome to the Rails R Us Contractor Safety and Environment Questionnaire/Assessment portal...</p>
-    
-    <div class="content">
-        <div class="column">
+    <header>
+        <h1>Welcome to the Rails-R-Us contractor portal</h1>
+    </header>
+    <div class="main-container">
+        <div class="large-paragraph" id="large-paragraph">
+            <!-- The content of the large paragraph will be loaded here -->
+        </div>
+    </div>
+    <div class="info-boxes">
+        <div class="info-box">
             <h2>For Contractors</h2>
             <p>If you are a contractor, please use the button below to access the Safety and Environment Questionnaire...</p>
             <button id="contractorLogin">Contractor Login</button>
         </div>
-        <div class="column">
+        <div class="info-box">
             <h2>For Rails R Us Assessors</h2>
             <p>If you are a Rails R Us Assessor, please use the button below to login. This area is password protected...</p>
-            <button id="Rails R Us AssessorLogin">Rails R Us Assessor Login</button>
+            <button id="qrAssessorLogin">Rails R Us Assessor Login</button>
             <p>Under Construction</p>
         </div>
     </div>
-
-    <!-- Rail tracks -->
-    <div class="rail-track left"></div>
-    <div class="rail-track right"></div>
-</div>
-
-<script src="config.js"></script>
-<script src="script.js"></script>
+    <footer>
+        <p>Remember: Safety first! Follow all workplace safety guidelines to ensure a safe working environment for everyone.</p>
+    </footer>
+    <script src="assets/scripts/config.js"></script>
+    <script src="assets/scripts/script.js"></script>
+    <script>
+        // Load the large paragraph content from a separate file
+        fetch('assets/content/large-paragraph.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('large-paragraph').innerHTML = data;
+            });
+    </script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+/* buttons.css */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: var(--open-button-bg-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: var(--open-button-hover-bg-color);
+}
+
+/* Modal close button */
+.close-button {
+    color: var(--close-button-color);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: var(--close-button-hover-color);
+    text-decoration: none;
+    cursor: pointer;
+}

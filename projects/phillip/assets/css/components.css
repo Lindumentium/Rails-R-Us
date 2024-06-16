@@ -1,0 +1,21 @@
+/* Component styles */
+button {
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #64b5f6; /* Light blue for buttons */
+}
+
+button:hover {
+    background-color: #42a5f5; /* Darker blue on hover */
+    transform: scale(1.05); /* Slightly enlarge button on hover */
+}
+
+button:focus {
+    outline: none;
+}

@@ -1,0 +1,18 @@
+/* banner.css */
+#top-banner, #bottom-banner {
+    width: 100%;
+    text-align: center;
+    background-color: var(--banner-bg-color);
+    padding: 10px;
+    font-size: 1.5em;
+    position: sticky;
+    z-index: 1000;
+}
+
+#top-banner {
+    top: 0;
+}
+
+#bottom-banner {
+    bottom: 0;
+}

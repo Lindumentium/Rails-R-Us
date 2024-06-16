@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/train.css">
+    <title>Contractor Instructions</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        header {
+            width: 100%;
+            background-color: #90caf9; /* Pastel blue */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #90caf9; /* Pastel blue */
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+        }
+
+        .train {
+            position: absolute;
+            bottom: 20px;
+            left: -200px;
+            animation: drive 10s linear infinite;
+        }
+
+        @keyframes drive {
+            from {
+                left: -200px;
+            }
+            to {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to the Rails-R-Us contractor portal</h1>
+    </header>
+    <div class="container">
+        <h1>Contractor Safety and Environment Questionnaire Instructions</h1>
+        <p>Welcome to the detailed instruction page for completing the "Rails R Us" Contractor Safety and Environment Questionnaire. Please review the following requirements and ensure you have all necessary documents ready.</p>
+        
+        <div id="instructions"></div>
+        
+        <button id="confirmButton">I have read and agree to the instructions</button>
+
+        <!-- Train animation -->
+        <div class="content">
+            <div class="track"></div>
+            <div class="train">
+                <div class="front"></div>
+                <div class="wheels">
+                    <div class="smallOne"></div>
+                    <div class="smallTwo"></div>
+                    <div class="smallThree"></div>
+                    <div class="smallFour"></div>
+                    <div class="smallFive"></div>
+                    <div class="smallSix"></div>
+                    <div class="big"></div>
+                </div>
+                <div class="cord"></div>
+                <div class="coach"></div>
+                <div class="coachTwo"></div>
+                <div class="windows"></div>  
+                <div id="up" class="steam"></div>
+                <div id="up" class="steam2"></div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>Remember: Safety first! Follow all workplace safety guidelines to ensure a safe working environment for everyone.</p>
+    </footer>
+
+    <script src="assets/scripts/config.js"></script>
+    <script src="assets/scripts/script.js"></script>
+    <script src="assets/scripts/contractor_instructions.js"></script>
+    <script>
+        document.getElementById('confirmButton').addEventListener('click', function() {
+            window.location.href = 'https://forms.office.com/r/jhtBcRFrZ9';
+        });
+    </script>
+</body>
+</html>
