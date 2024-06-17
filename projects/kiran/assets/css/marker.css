@@ -1,0 +1,38 @@
+.marker {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: move;
+}
+
+.marker.danger {
+    background-color: red;
+}
+
+.marker.caution {
+    background-color: orange;
+}
+
+.marker.safe {
+    background-color: green;
+}
+
+.marker.pink {
+    background-color: pink;
+}
+
+.marker.pink[data-hazard-level]:after {
+    content: attr(data-hazard-level);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+.marker.demo {
+    background-color: blue; /* Example color, adjust as needed */
+    border: 2px dashed white; /* Example styling, adjust as needed */
+    z-index: 1;
+}

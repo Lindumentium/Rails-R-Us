@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rails R Us Hazard Identification Game</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/image.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/darkmode.css">
+    <link rel="stylesheet" href="assets/css/marker.css">
+    <link rel="stylesheet" href="assets/css/text.css">
+    <link rel="stylesheet" href="assets/css/scaling.css">
+
+    <style>
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo center">Rails R Us Company Logo</a>
+                <a href="#" class="brand-logo center">Rails-R-Us Company Logo</a>
                 <ul id="nav-mobile" class="right">
                     <li><a href="#" id="dark-mode-toggle">Dark Mode</a></li>
                 </ul>
@@ -19,22 +28,20 @@
         </nav>
     </header>
     <main class="container">
-        <div id="header-content">
-            <h2>Welcome to the Rails R Us Hazard Identification Game</h2>
-            <p>This game helps you identify workplace hazards and improve safety awareness.</p>
+        <div id="intro-container">
+            <h2>Welcome to the Rails-R-Us Hazard Identification Game</h2>
+            <p>Workplace safety is everyone's responsibility. Raising awareness and promoting vigilance can prevent incidents and save lives by ensuring a proactive approach to identifying and addressing hazards.</p>
         </div>
-        <div id="demo">
-            <div id="image-container">
-                <img src="assets/images/demo.png" alt="Demo Image">
-                <div id="demo-marker" class="marker" draggable="true">Drag me!</div>
-            </div>
+        <div id="image-container" class="image-container">
+            <img src="assets/images/demo.png" class="demo-image" alt="Demo Image">
+            <div id="demo-marker" class="marker demo" draggable="true"></div>
         </div>
     </main>
     <footer class="page-footer">
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Rails R Us Hazard Identification Game</h5>
+                    <h5 class="white-text">Rails-R-Us Hazard Identification Game</h5>
                     <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
                 </div>
             </div>
@@ -72,6 +79,10 @@
                     }
                 }
             }
+        });
+        document.getElementById('dark-mode-toggle').addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor action
+            document.body.classList.toggle('dark-mode');
         });
     </script>
 </body>

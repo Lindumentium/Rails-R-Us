@@ -1,0 +1,32 @@
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode header, body.dark-mode footer, body.dark-mode main, body.dark-mode nav {
+    background-color: #333;
+    color: #ffffff;
+}
+
+body.dark-mode .btn, body.dark-mode a {
+    background-color: #424242; /* Adjust if necessary */
+    color: white;
+}
+
+body.dark-mode .btn:hover, body.dark-mode a:hover {
+    background-color: #616161; /* Adjust if necessary */
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .nav-wrapper,
+    body.dark-mode .page-footer {
+    background-color: #333;
+}
+
+body.dark-mode a {
+    color: #4fc3f7;
+}

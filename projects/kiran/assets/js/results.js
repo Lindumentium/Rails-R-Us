@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
         confettiContainer.appendChild(confettiPiece);
     }
 
-    // Display a random leaderboard
+    // Display a random leader board
     const leaderboards = [
         ['Player 1: 100', 'Player 2: 90', 'Player 3: 80'],
         ['Player A: 95', 'Player B: 85', 'Player C: 75'],

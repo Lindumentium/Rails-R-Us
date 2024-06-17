@@ -36,7 +36,7 @@ function createMarker(type) {
             break;
     }
 
-    document.body.appendChild(marker);
+    document.getElementById('image-container').appendChild(marker);
 
     interact(marker).draggable({
         listeners: {
@@ -107,20 +107,12 @@ function showError(message) {
 
 function openLoginModal() {
     const modal = document.getElementById('login-modal');
-    const instance = M.Modal.init(modal); // Correct initialization of Materialize modal
+    const instance = M.Modal.init(modal);
     instance.open();
 }
 
 function adminLogin() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Example login validation
-    if (username === 'admin' && password === 'password') {
-        window.location.href = 'admin.html';
-    } else {
-        showError('Invalid username or password.');
-    }
+    window.location.href = 'admin.html';
 }
 
 // Initialize existing markers with draggable

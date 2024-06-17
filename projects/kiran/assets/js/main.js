@@ -36,8 +36,3 @@ interact('.marker').draggable({
         }
     }
 });
-
-// Load dark mode preference
-if (localStorage.getItem('darkMode') === 'true') {
-    document.body.classList.add('dark-mode');
-}

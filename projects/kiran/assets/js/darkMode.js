@@ -1,15 +1,12 @@
-// darkMode.js
 document.getElementById('dark-mode-toggle').addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
     localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
 });
 
-// Load dark mode preference
 if (localStorage.getItem('darkMode') === 'true') {
     document.body.classList.add('dark-mode');
 }
 
-// Apply dark mode to all relevant elements
 const darkModeStyles = `
     body.dark-mode {
         background-color: #121212;

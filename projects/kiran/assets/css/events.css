@@ -1,0 +1,30 @@
+body, html {
+    user-select: none; /* Prevent text selection */
+    -webkit-user-select: none; /* Prevent text selection for Safari */
+    -moz-user-select: none; /* Prevent text selection for Firefox */
+    -ms-user-select: none; /* Prevent text selection for IE10+ */
+}
+
+img {
+    -webkit-user-drag: none; /* Prevent image dragging for Safari */
+}
+
+.error-modal {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s, top 0.5s;
+    z-index: 1001;
+}
+
+.error-modal.show {
+    top: 20px;
+    opacity: 1;
+}

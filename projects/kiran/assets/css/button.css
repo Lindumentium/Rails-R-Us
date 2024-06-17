@@ -1,0 +1,14 @@
+.btn, .marker-box {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover, .marker-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#button-container .btn {
+    background-color: #26a69a; /* Set a common color for all buttons */
+    color: white;
+    margin-bottom: 10px;
+}

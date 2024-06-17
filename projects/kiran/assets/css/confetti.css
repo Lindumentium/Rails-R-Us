@@ -1,0 +1,17 @@
+@keyframes confetti {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(100vh); }
+}
+
+.confetti-piece {
+    width: 10px;
+    height: 20px;
+    position: absolute;
+    top: -10px;
+    animation: confetti 5s linear infinite;
+}
+
+.confetti-piece:nth-child(2n) { background-color: blue; }
+.confetti-piece:nth-child(3n) { background-color: green; }
+.confetti-piece:nth-child(4n) { background-color: yellow; }
+.confetti-piece:nth-child(5n) { background-color: orange; }

@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard - Hazard Identification Game</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/button.css">
+    <link rel="stylesheet" href="assets/css/common.css">
+    <link rel="stylesheet" href="assets/css/darkmode.css">
+    <link rel="stylesheet" href="assets/css/image.css">
+    <link rel="stylesheet" href="assets/css/events.css">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 <body>
     <header>
@@ -18,26 +23,35 @@
             </div>
         </nav>
     </header>
-    <main class="container">
-        <h2>Admin Dashboard</h2>
-        <div id="image-management">
-            <h4>Manage Images</h4>
-            <form id="upload-form">
-                <div class="file-field input-field">
-                    <div class="btn">
-                        <span>Upload Image</span>
-                        <input type="file" id="image-upload">
+    <main class="main-container container">
+        <div class="left-section">
+            <h2>Admin Dashboard</h2>
+            <div id="image-management">
+                <h4>Upload Image</h4>
+                <form id="upload-form">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Upload Image</span>
+                            <input type="file" id="image-upload">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
                     </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
-                </div>
-                <button type="submit" class="btn">Upload</button>
-            </form>
-            <ul id="image-list">
-                <li>Placeholder Image 1 <button class="btn red">Remove</button></li>
-                <li>Placeholder Image 2 <button class="btn red">Remove</button></li>
-            </ul>
+                </form>
+            </div>
+            <div id="marker-management">
+                <h4>Admin Markers</h4>
+                <button class="btn" id="spawn-pink-marker">Spawn Pink Marker</button>
+                <div id="markers-container"></div>
+            </div>
+        </div>
+        <div class="right-section">
+            <div id="images-container" class="image-gallery"></div>
+            <div id="hero-image" class="hero-image">
+                <button class="close-hero" onclick="closeHeroImage()">X</button>
+                <img id="hero-img" src="" alt="Hero Image">
+            </div>
         </div>
     </main>
     <footer class="page-footer">
@@ -45,12 +59,27 @@
             <div class="row">
                 <div class="col l6 s12">
                     <h5 class="white-text">Hazard Identification Game</h5>
-                    <p class="grey-text text-lighten-4">Improving workplace safety one step at a time.</p>
+                    <p class="grey-text text-lighten-4">Improving workplace safety one hazard at a time.</p>
                 </div>
             </div>
         </div>
     </footer>
+
+    <div id="label-modal" class="modal">
+        <div class="modal-content">
+            <h4>Label Marker</h4>
+            <div class="input-field">
+                <input id="marker-label" type="text">
+                <label for="marker-label">Label</label>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-close btn waves-effect waves-light" id="save-label">Save</button>
+        </div>
+    </div>
+
     <script src="assets/js/paths.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/admin.js"></script>
     <script src="assets/js/darkMode.js"></script>
