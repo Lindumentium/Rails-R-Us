@@ -2,12 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof interact !== 'undefined') {
         interact('.marker').draggable({
             inertia: true,
-            modifiers: [
-                interact.modifiers.restrictRect({
-                    restriction: 'parent',
-                    endOnly: true
-                })
-            ],
             autoScroll: true,
             listeners: {
                 start(event) {

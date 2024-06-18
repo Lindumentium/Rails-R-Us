@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/image.css">
     <link rel="stylesheet" href="assets/css/events.css">
     <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/marker.css">
 </head>
 <body>
     <header>
@@ -45,6 +46,10 @@
                 <button class="btn" id="spawn-pink-marker">Spawn Pink Marker</button>
                 <div id="markers-container"></div>
             </div>
+            <div id="marker-coordinates">
+                <h4>Marker Coordinates</h4>
+                <ul id="coordinates-list"></ul>
+            </div>
         </div>
         <div class="right-section">
             <div id="images-container" class="image-gallery"></div>
@@ -78,7 +83,6 @@
         </div>
     </div>
 
-    <script src="assets/js/paths.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.10.11/interact.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="assets/js/admin.js"></script>
