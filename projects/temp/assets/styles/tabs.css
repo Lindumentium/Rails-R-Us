@@ -1,0 +1,39 @@
+/* Tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+    display: block; /* Ensure tabs take full width */
+    box-sizing: border-box; /* Include padding and border in width */
+  }
+  
+  .tablink:hover {
+    background-color: #777;
+  }
+  
+  /* Tab content */
+  .tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+    width: 75%; /* Adjust width of tab content */
+    float: left; /* Float content left */
+  }
+  
+  .tabcontent.active {
+    display: block;
+  }
+  
+  /* Adjust colors based on page */
+  #Home {background-color: red;}
+  #News {background-color: green;}
+  #Contact {background-color: blue;}
+  #About {background-color: orange;}
+  

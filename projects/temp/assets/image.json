@@ -1,0 +1,12 @@
+{
+    "images": [
+        {"path": "media/image1.png", "alt": "The image could not be loaded"},
+        {"path": "media/image2.png", "alt": "The image could not be loaded"},
+        {"path": "media/image3.png", "alt": "The image could not be loaded"},
+        {"path": "media/image4.png", "alt": "The image could not be loaded"},
+        {"path": "media/image5.png", "alt": "The image could not be loaded"},
+        {"path": "media/image6.png", "alt": "The image could not be loaded"},
+        {"path": "media/image7.png", "alt": "The image could not be loaded"},
+        {"path": "media/image8.png", "alt": "The image could not be loaded"}
+    ]
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/styles/common.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/gallery.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/focus-image.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/tabs.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/modal.css">
+  <script src="assets/scripts/scripts.js" defer></script>
+</head>
+<body>
+
+<header>
+  <h1>Simple Website</h1>
+</header>
+
+<div class="tablink-container">
+  <button class="tablink" data-page="Home">Home</button>
+  <button class="tablink" data-page="News" id="defaultOpen">News</button>
+  <button class="tablink" data-page="Contact">Contact</button>
+  <button class="tablink" data-page="About">About</button>
+</div>
+
+<div id="Home" class="tabcontent">
+  <h3>Home</h3>
+  <p>Home is where the heart is..</p>
+</div>
+
+<div id="News" class="tabcontent">
+  <h3>News</h3>
+  <p>Some news this fine day!</p> 
+</div>
+
+<div id="Contact" class="tabcontent">
+  <h3>Contact</h3>
+  <p>Get in touch, or swing by for a cup of coffee.</p>
+
+  <!-- Image gallery -->
+  <div id="imageGallery" class="gallery">
+    <div class="row">
+      <div class="column">
+        <img src="" alt="" onclick="showFocusImage(this);">
+      </div>
+      <div class="column">
+        <img src="" alt="" onclick="showFocusImage(this);">
+      </div>
+    </div>
+  </div>
+
+  <!-- Expanded focus image container -->
+  <div id="focusImageContainer" class="focus-image-container">
+    <span class="closebtn" onclick="closeFocusImage()">&times;</span>
+    <img id="focusedImg" src="" alt="">
+  </div>
+
+</div>
+
+<div id="About" class="tabcontent">
+  <h3>About</h3>
+  <p>Who we are and what we do.</p>
+</div>
+
+<!-- Modal box for Admin Tools -->
+<div id="adminModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Admin Tools</h2>
+    <p>Add your admin tools content here...</p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Simple Website. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

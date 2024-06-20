@@ -1,0 +1,32 @@
+/* Gallery styles */
+.gallery {
+    display: flex;
+    flex-direction: column;
+    max-height: 400px; /* Adjust max-height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin-bottom: 10px;
+  }
+  
+  .gallery .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid layout */
+    gap: 10px; /* Adjust gap between grid items */
+  }
+  
+  .gallery .column {
+    position: relative;
+    overflow: hidden; /* Ensure images don't overflow column */
+  }
+  
+  .gallery img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .gallery img:hover {
+    opacity: 1;
+  }
+  

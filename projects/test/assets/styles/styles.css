@@ -1,0 +1,112 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow: hidden; /* Prevent scrolling on the main page */
+}
+
+.header {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.tablink {
+  float: left;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #555;
+}
+
+.tabcontent {
+  display: none;
+  position: relative; /* Position relative for absolute children */
+  top: 50px; /* Adjust based on header height */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden; /* Ensures no scroll on the main content */
+}
+
+.admin-tools {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20%; /* Admin tools panel width */
+  height: calc(100% - 50px); /* Full height minus header */
+  background-color: #f1f1f1;
+  padding: 10px;
+  overflow-y: auto; /* Allows scrolling within the admin tools only if needed */
+}
+
+.gallery {
+  position: absolute;
+  left: 20%; /* Offset by the width of the admin tools */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto; /* Allows scrolling within the gallery */
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.large-image-container {
+  display: none; /* Initially hidden */
+  position: absolute;
+  left: 20%; /* Same as gallery offset */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #bbb;
+}
+
+.large-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin: auto;
+}
+
+.column {
+  width: 33.33%; /* Three columns layout by default */
+  padding: 4px; /* Padding around images */
+}
+
+.column img {
+  width: 100%;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    width: 50%; /* Two columns layout for smaller screens */
+  }
+}
+
+.closebtn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.closebtn:hover,
+.closebtn:focus {
+  color: black;
+  text-decoration: none;
+}

@@ -1,0 +1,39 @@
+/* Focus image container styles */
+.focus-image-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 35%; /* Position focus image to the right 60% of the page */
+    width: 25%; /* Take up 25% of the page width */
+    height: 100vh; /* Full height of viewport */
+    background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+    z-index: 9999; /* Ensure it's above other content */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto; /* Enable scrolling within focus image container */
+  }
+  
+  .focus-image-container .closebtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+  }
+  
+  .focus-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .focus-image-container {
+      left: 5%; /* Adjust position for smaller screens */
+      width: 90%; /* Take up 90% of the page width on smaller screens */
+    }
+  }
+  
