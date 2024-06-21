@@ -1,39 +1,61 @@
 /* Tab links */
 .tablink {
-    background-color: #555;
-    color: white;
-    float: left;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
-    font-size: 17px;
-    width: 25%;
-    display: block; /* Ensure tabs take full width */
-    box-sizing: border-box; /* Include padding and border in width */
-  }
-  
-  .tablink:hover {
-    background-color: #777;
-  }
-  
-  /* Tab content */
-  .tabcontent {
-    color: white;
-    display: none;
-    padding: 100px 20px;
-    height: 100%;
-    width: 75%; /* Adjust width of tab content */
-    float: left; /* Float content left */
-  }
-  
-  .tabcontent.active {
-    display: block;
-  }
-  
-  /* Adjust colors based on page */
-  #Home {background-color: red;}
-  #News {background-color: green;}
-  #Contact {background-color: blue;}
-  #About {background-color: orange;}
-  
+  background-color: #555;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+  display: block; /* Ensure tabs take full width */
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Tab content */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 20px;
+  width: 100%; /* Default to 100% width */
+  min-height: calc(100vh - 80px); /* Ensure tab content fills the height */
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+#Contact .tabcontent {
+  width: 100%; /* Default to 100% width */
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+/* Specific adjustments for tab background colors */
+#Welcome {
+  background-color: #ffcccc; /* Pastel Red */
+}
+
+#Game {
+  background-color: #ccffcc; /* Pastel Green */
+}
+
+#Admin {
+  background-color: #ccccff; /* Pastel Blue */
+}
+
+#Results {
+  background-color: #ffcc99; /* Pastel Orange */
+}
+
+.news-image-container img {
+  max-width: 100%;
+  max-height: calc(100vh - 80px); /* Ensure image fits within viewable area */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}

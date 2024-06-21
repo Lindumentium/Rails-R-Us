@@ -1,0 +1,18 @@
+{
+    "css": [
+      "assets/styles/common.css",
+      "assets/styles/gallery.css",
+      "assets/styles/focus-image.css",
+      "assets/styles/tabs.css",
+      "assets/styles/modal.css"
+    ],
+    "js": [
+      "https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js",
+      "assets/scripts/quotes.js",
+      "assets/scripts/tabs.js",
+      "assets/scripts/images.js",
+      "assets/scripts/modal.js",
+      "assets/scripts/interact.js"
+    ]
+  }
+  

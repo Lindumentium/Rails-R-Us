@@ -3,76 +3,129 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="assets/styles/common.css">
-  <link rel="stylesheet" type="text/css" href="assets/styles/gallery.css">
-  <link rel="stylesheet" type="text/css" href="assets/styles/focus-image.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/tabs.css">
-  <link rel="stylesheet" type="text/css" href="assets/styles/modal.css">
-  <script src="assets/scripts/scripts.js" defer></script>
+  <script src="assets/scripts/loadAssets.js" defer></script>
 </head>
 <body>
 
-<header>
-  <h1>Simple Website</h1>
-</header>
-
 <div class="tablink-container">
-  <button class="tablink" data-page="Home">Home</button>
-  <button class="tablink" data-page="News" id="defaultOpen">News</button>
-  <button class="tablink" data-page="Contact">Contact</button>
-  <button class="tablink" data-page="About">About</button>
+  <button class="tablink" data-page="Welcome" id="defaultOpen">Welcome</button>
+  <button class="tablink" data-page="Game">Game</button>
+  <button class="tablink" data-page="Admin">Admin</button>
+  <button class="tablink" data-page="Results">Results</button>
 </div>
 
-<div id="Home" class="tabcontent">
-  <h3>Home</h3>
-  <p>Home is where the heart is..</p>
+<div id="Welcome" class="tabcontent">
+  <h2 style="text-align: left;">Rails-R-Us Hazard Identification Game</h2>
+  <p style="text-align: left;">Placeholder for workplace safety and incidents information.</p>
+
+  <div class="home-demo-image-container">
+    <img id="homeDemoImage" src="" alt="Home Demo Image" class="dropzone">
+  </div>
+  
+  <div class="draggable" style="width: 50px; height: 50px; background-color: blue; border-radius: 50%; position: absolute; top: 100px; left: 100px;"></div>
 </div>
 
-<div id="News" class="tabcontent">
-  <h3>News</h3>
-  <p>Some news this fine day!</p> 
+<div id="Game" class="tabcontent">
+  <div id="gameModal">
+    <div class="circle red" draggable="true">Danger</div>
+    <div class="circle orange" draggable="true">Caution</div>
+    <div class="circle green" draggable="true">Safe</div>
+    <button class="button button3" onclick="recallMarker()">Recall Marker</button>
+    <button class="button button4" onclick="recallAllMarkers()">Recall All Markers</button>
+    <input type="text" id="commentInput" placeholder="Enter comment">
+    <button class="button button5" onclick="addComment()">Comment</button>
+    <button class="button button1" onclick="submitMarkers()">Submit</button>
+  </div>
+  <div class="news-image-container" style="text-align:center;">
+    <img id="gameImage" src="" alt="Game Image" class="dropzone" style="max-width: 100%; height: auto;">
+  </div>
 </div>
 
-<div id="Contact" class="tabcontent">
-  <h3>Contact</h3>
-  <p>Get in touch, or swing by for a cup of coffee.</p>
+<div id="Admin" class="tabcontent">
+  <button onclick="openModal('adminModal')">Admin Login</button>
+  <div class="contact-content">
+    <p>Get in touch, or swing by for a cup of coffee.</p>
 
-  <!-- Image gallery -->
-  <div id="imageGallery" class="gallery">
-    <div class="row">
-      <div class="column">
-        <img src="" alt="" onclick="showFocusImage(this);">
-      </div>
-      <div class="column">
-        <img src="" alt="" onclick="showFocusImage(this);">
+    <div id="imageGallery" class="gallery">
+      <div class="row">
+        <div class="column">
+          <img src="" alt="" onclick="showFocusImage(this);">
+        </div>
+        <div class="column">
+          <img src="" alt="" onclick="showFocusImage(this);">
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Expanded focus image container -->
-  <div id="focusImageContainer" class="focus-image-container">
-    <span class="closebtn" onclick="closeFocusImage()">&times;</span>
-    <img id="focusedImg" src="" alt="">
+    <div id="focusImageContainer" class="focus-image-container">
+      <span class="closebtn" onclick="closeFocusImage()">&times;</span>
+      <img id="focusedImg" src="" alt="">
+    </div>
   </div>
-
 </div>
 
-<div id="About" class="tabcontent">
-  <h3>About</h3>
+<div id="Results" class="tabcontent">
+  <h3>Results</h3>
   <p>Who we are and what we do.</p>
 </div>
 
-<!-- Modal box for Admin Tools -->
 <div id="adminModal" class="modal">
   <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="close" onclick="closeModal('adminModal')">&times;</span>
+    <h2>Admin Login</h2>
+    <form onsubmit="return adminLogin(event)">
+      <p><input type="text" id="adminUsername" placeholder="Username"></p>
+      <p><input type="password" id="adminPassword" placeholder="Password"></p>
+      <p><button type="submit">Login</button></p>
+    </form>
+  </div>
+</div>
+
+<div id="adminToolsModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('adminToolsModal')">&times;</span>
     <h2>Admin Tools</h2>
     <p>Add your admin tools content here...</p>
   </div>
 </div>
 
 <footer>
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <q id="quoteText">Quote 1</q>
+      <p id="quoteAuthor" class="author">Author 1</p>
+    </div>
+    <div class="mySlides">
+      <q id="quoteText">Quote 2</q>
+      <p id="quoteAuthor" class="author">Author 2</p>
+    </div>
+    <div class="mySlides">
+      <q id="quoteText">Quote 3</q>
+      <p id="quoteAuthor" class="author">Author 3</p>
+    </div>
+  </div>
   <p>&copy; 2024 Simple Website. All rights reserved.</p>
 </footer>
+
+<div id="errorPopup" class="error-popup">Error Message</div>
+
+<script>
+// Quotes Slideshow
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("mySlides");
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 15000); // Change quote every 15 seconds
+}
+</script>
 
 </body>
 </html>
